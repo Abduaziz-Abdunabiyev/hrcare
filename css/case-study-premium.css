@@ -1,0 +1,1050 @@
+/* =====================================================
+   PREMIUM CASE STUDY - UPGRADED DESIGN
+   Unusual, creative premium styling with performance optimization
+   ===================================================== */
+
+/* =====================================================
+   1. ANIMATED PARTICLE BACKGROUND
+   ===================================================== */
+.particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* =====================================================
+   2. ENHANCED HERO SECTION
+   ===================================================== */
+.blog-details-page-title {
+    position: relative;
+    padding: 200px 0 140px;
+    overflow: hidden;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    will-change: transform;
+}
+
+.blog-details-page-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(135deg, rgba(8, 2, 32, 0.97) 0%, rgba(15, 9, 39, 0.94) 50%, rgba(8, 2, 32, 0.97) 100%);
+    z-index: 1;
+}
+
+/* Animated gradient orbs */
+.hero-gradient-orbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.hero-gradient-orbs::before,
+.hero-gradient-orbs::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: floatOrbs 20s ease-in-out infinite;
+}
+
+.hero-gradient-orbs::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(103, 102, 255, 0.3) 0%, transparent 70%);
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.hero-gradient-orbs::after {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 127, 255, 0.25) 0%, transparent 70%);
+    bottom: -200px;
+    right: -200px;
+    animation-delay: 10s;
+}
+
+.blog-details-page-title .auto-container {
+    position: relative;
+    z-index: 3;
+}
+
+/* =====================================================
+   3. PREMIUM TITLE ANIMATIONS
+   ===================================================== */
+.title-content {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-sub-title {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #6766FF;
+    background: linear-gradient(135deg, rgba(103, 102, 255, 0.15), rgba(139, 127, 255, 0.1));
+    padding: 10px 28px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(103, 102, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+.page-sub-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.page-title {
+    font-size: 64px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 28px;
+    line-height: 1.15;
+    animation: fadeInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+    background: linear-gradient(135deg, #ffffff 0%, #E8DFFF 50%, #B8A9FF 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both, gradientShift 8s ease infinite;
+}
+
+.page-desc {
+    font-size: 19px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 850px;
+    margin: 0 auto;
+    animation: fadeInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+}
+
+/* =====================================================
+   4. CONTENT AREA WITH GLASSMORPHISM
+   ===================================================== */
+.blog-details-area {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #05030f 0%, #0a0820 50%, #05030f 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.blog-details-thumb {
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 70px;
+    box-shadow: 
+        0 40px 100px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: scaleIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.blog-details-thumb::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(8, 2, 32, 0.4) 100%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.blog-details-thumb:hover::before {
+    opacity: 1;
+}
+
+.blog-details-thumb figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-details-thumb img {
+    width: 100%;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blog-details-thumb:hover img {
+    transform: scale(1.08) rotate(1deg);
+}
+
+/* =====================================================
+   5. CONTENT SECTIONS WITH SCROLL ANIMATIONS
+   ===================================================== */
+.content-section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.blog-details-content {
+    animation: fadeIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both;
+}
+
+.meta-blog {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.meta-blog span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.meta-blog span:hover {
+    background: rgba(103, 102, 255, 0.15);
+    border-color: rgba(103, 102, 255, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(103, 102, 255, 0.2);
+}
+
+.mate-text {
+    background: linear-gradient(135deg, rgba(103, 102, 255, 0.25), rgba(139, 127, 255, 0.2)) !important;
+    border-color: rgba(103, 102, 255, 0.5) !important;
+}
+
+/* =====================================================
+   6. ENHANCED TYPOGRAPHY
+   ===================================================== */
+.blog-details-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 60px 0 32px;
+    position: relative;
+    padding-left: 30px;
+    line-height: 1.3;
+}
+
+.blog-details-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #6766FF, #B8A9FF, #6766FF);
+    background-size: 100% 200%;
+    border-radius: 4px;
+    box-shadow: 0 0 25px rgba(103, 102, 255, 0.6);
+    animation: gradientMove 3s ease infinite;
+}
+
+.blog-details-title.two {
+    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blog-details-desc {
+    font-size: 18px;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 28px;
+}
+
+.blog-details-desc strong {
+    color: #E8DFFF;
+    font-weight: 700;
+    background: linear-gradient(135deg, #B8A9FF, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =====================================================
+   7. PREMIUM QUOTE DESIGN
+   ===================================================== */
+.blog-details-author-talk {
+    position: relative;
+    background: linear-gradient(135deg, rgba(103, 102, 255, 0.12), rgba(139, 127, 255, 0.08));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(103, 102, 255, 0.3);
+    border-left: 5px solid #6766FF;
+    border-radius: 20px;
+    padding: 50px 50px 50px 90px;
+    margin: 60px 0;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blog-details-quote {
+    position: absolute;
+    left: 35px;
+    top: 50px;
+    opacity: 0.25;
+}
+
+.blog-details-quote img {
+    width: 40px;
+    filter: brightness(0) invert(1);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.blog-details-author-title p {
+    font-size: 20px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    margin: 0 0 20px 0;
+}
+
+.blog-details-author-title h5 {
+    color: #B8A9FF;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* =====================================================
+   8. CREATIVE LIST DESIGN
+   ===================================================== */
+.blog-details-list-item {
+    margin: 50px 0;
+}
+
+.blog-details-list-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 20px;
+}
+
+.blog-details-list-item ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    line-height: 1.7;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-details-list-item ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(103, 102, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.blog-details-list-item ul li:hover::before {
+    left: 100%;
+}
+
+.blog-details-list-item ul li:hover {
+    background: rgba(103, 102, 255, 0.12);
+    border-color: rgba(103, 102, 255, 0.4);
+    transform: translateX(12px) scale(1.02);
+    box-shadow: 
+        0 12px 40px rgba(103, 102, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.blog-details-list-item ul li img {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+/* =====================================================
+   9. SOLUTION CARDS
+   ===================================================== */
+.solution-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.solution-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(103, 102, 255, 0.15) 90deg,
+        transparent 180deg
+    );
+    opacity: 0;
+    transition: all 0.6s ease;
+    animation: rotate 8s linear infinite;
+}
+
+.solution-card:hover::before {
+    opacity: 1;
+}
+
+.solution-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: rgba(103, 102, 255, 0.4);
+    box-shadow: 
+        0 20px 60px rgba(103, 102, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.solution-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #6766FF, #8B7FFF);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(103, 102, 255, 0.4);
+    position: relative;
+    z-index: 1;
+}
+
+.solution-icon i {
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.solution-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.solution-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   10. RESULTS GRID WITH COUNTERS
+   ===================================================== */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6766FF, #B8A9FF);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.result-card:hover::before {
+    transform: scaleX(1);
+}
+
+.result-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    border-color: rgba(103, 102, 255, 0.4);
+    box-shadow: 0 15px 50px rgba(103, 102, 255, 0.3);
+}
+
+.result-number {
+    font-size: 56px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6766FF, #B8A9FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.result-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+}
+
+.result-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* =====================================================
+   11. PREMIUM CONTACT FORM
+   ===================================================== */
+.single-comment-area {
+    margin-top: 100px;
+}
+
+.blog-details-contact {
+    background: linear-gradient(135deg, rgba(103, 102, 255, 0.08), rgba(139, 127, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(103, 102, 255, 0.25);
+    border-radius: 24px;
+    padding: 70px;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-details-contact::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(103, 102, 255, 0.15) 0%, transparent 70%);
+    animation: float 8s ease-in-out infinite;
+}
+
+.blog-details-contact-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.blog-details-contact-title h4 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #B8A9FF 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blog-details-contact-title p {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* =====================================================
+   12. FORM INPUT STYLING
+   ===================================================== */
+.case-form {
+    position: relative;
+    z-index: 1;
+}
+
+.case-form .contact-input-box {
+    margin-bottom: 24px;
+}
+
+.case-form input,
+.case-form textarea {
+    width: 100%;
+    padding: 20px 26px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 16px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.case-form input::placeholder,
+.case-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.case-form input:focus,
+.case-form textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #6766FF;
+    box-shadow: 
+        0 0 0 4px rgba(103, 102, 255, 0.1),
+        0 12px 40px rgba(103, 102, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.case-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* =====================================================
+   13. PREMIUM SUBMIT BUTTON
+   ===================================================== */
+.blog-details-submi-button {
+    margin-top: 20px;
+}
+
+.blog-details-submi-button button {
+    width: 100%;
+    padding: 20px 45px;
+    background: linear-gradient(135deg, #6766FF 0%, #8B7FFF 100%);
+    border: none;
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 15px 40px rgba(103, 102, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-details-submi-button button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.blog-details-submi-button button:hover::before {
+    width: 500px;
+    height: 500px;
+}
+
+.blog-details-submi-button button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(103, 102, 255, 0.6);
+}
+
+.blog-details-submi-button button:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.blog-details-submi-button button span,
+.blog-details-submi-button button i {
+    position: relative;
+    z-index: 1;
+}
+
+.blog-details-submi-button button i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.blog-details-submi-button button:hover i {
+    transform: translateX(5px);
+}
+
+/* =====================================================
+   14. KEYFRAME ANIMATIONS
+   ===================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes gradientMove {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes floatOrbs {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.25;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.35;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =====================================================
+   15. RESPONSIVE DESIGN
+   ===================================================== */
+@media (max-width: 991px) {
+    .blog-details-page-title {
+        padding: 160px 0 100px;
+    }
+    
+    .page-title {
+        font-size: 46px;
+    }
+    
+    .page-desc {
+        font-size: 17px;
+    }
+    
+    .blog-details-title {
+        font-size: 32px;
+        padding-left: 24px;
+        margin: 45px 0 24px;
+    }
+    
+    .blog-details-author-talk {
+        padding: 40px 35px 40px 80px;
+    }
+    
+    .blog-details-contact {
+        padding: 50px 40px;
+    }
+    
+    .solution-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-details-page-title {
+        padding: 140px 0 80px;
+    }
+    
+    .page-title {
+        font-size: 36px;
+    }
+    
+    .page-desc {
+        font-size: 16px;
+    }
+    
+    .blog-details-title {
+        font-size: 26px;
+        margin: 35px 0 20px;
+        padding-left: 20px;
+    }
+    
+    .blog-details-author-talk {
+        padding: 30px 25px 30px 70px;
+    }
+    
+    .blog-details-quote {
+        left: 25px;
+        top: 30px;
+    }
+    
+    .blog-details-contact {
+        padding: 40px 25px;
+    }
+    
+    .blog-details-contact-title h4 {
+        font-size: 28px;
+    }
+    
+    .meta-blog {
+        gap: 12px;
+    }
+    
+    .meta-blog span {
+        font-size: 13px;
+        padding: 10px 18px;
+    }
+    
+    .solution-card {
+        padding: 30px;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .result-number {
+        font-size: 48px;
+    }
+}
+
+/* =====================================================
+   16. PERFORMANCE OPTIMIZATIONS
+   ===================================================== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible for accessibility */
+.case-form input:focus-visible,
+.case-form textarea:focus-visible,
+.blog-details-submi-button button:focus-visible {
+    outline: 3px solid #6766FF;
+    outline-offset: 3px;
+}
+
+/* Hardware acceleration for smooth animations */
+.blog-details-thumb,
+.solution-card,
+.result-card,
+.meta-blog span {
+    will-change: transform;
+}
+
+/* =====================================================
+   END OF PREMIUM UPGRADED CASE STUDY
+   ===================================================== */
+
+   /* ================================
+   CASE STUDY IMAGE FIX
+================================ */
+
+.case-study-layout {
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.blog-details-thumb.small-thumb {
+    max-width: 460px;   /* размер картинки */
+    margin-left: auto;  /* прижимает вправо */
+}
+
+.blog-details-thumb.small-thumb img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    .blog-details-thumb.small-thumb {
+        max-width: 100%;
+        margin: 40px auto 0;
+    }
+}

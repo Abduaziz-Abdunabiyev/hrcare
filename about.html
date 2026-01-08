@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HR Care — HRM-платформа Verifix для автоматизации HR</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+    <style>
+        /* Premium About Page Variables - Scoped to avoid conflicts */
+        .about-page-premium {
+            --premium-bg: #0a0e27;
+            --premium-secondary-bg: #141b3d;
+            --premium-accent-purple: #6366f1;
+            --premium-accent-blue: #3b82f6;
+            --premium-accent-pink: #ec4899;
+            --premium-text-primary: #ffffff;
+            --premium-text-secondary: #94a3b8;
+            --premium-glass-bg: rgba(255, 255, 255, 0.03);
+            --premium-glass-border: rgba(255, 255, 255, 0.1);
+            --premium-glow-color: rgba(99, 102, 241, 0.3);
+        }
+
+        /* Animated background - scoped */
+        .premium-animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .premium-animated-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            animation: premiumBgRotate 30s linear infinite;
+        }
+
+        @keyframes premiumBgRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating particles - renamed to avoid conflicts */
+        .premium-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .premium-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: premiumFloat 20s infinite;
+        }
+
+        @keyframes premiumFloat {
+            0%, 100% { 
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Main container - override template styles for this section */
+        .about-page-premium.about-page-title {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            padding: 120px 0 80px;
+            background: var(--premium-bg);
+        }
+
+        /* Redefine auto-container for this section only */
+        .about-page-premium .auto-container {
+            max-width: 1400px !important;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Badge */
+        .about-page-premium .page-sub-title {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--premium-glass-bg);
+            border: 1px solid var(--premium-glass-border);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--premium-accent-purple);
+            backdrop-filter: blur(10px);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: premiumFadeInUp 0.8s ease forwards;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .about-page-premium .page-sub-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .about-page-premium .page-sub-title:hover::before {
+            left: 100%;
+        }
+
+        /* Main title */
+        .about-page-premium .page-title {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: premiumFadeInUp 0.8s ease 0.2s forwards;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Description */
+        .about-page-premium .page-desc {
+            font-size: 20px;
+            color: var(--premium-text-secondary);
+            max-width: 800px;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: premiumFadeInUp 0.8s ease 0.4s forwards;
+            line-height: 1.8;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Cards container */
+        .about-page-premium .about-text-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        /* Premium card */
+        .about-page-premium .about-card {
+            position: relative;
+            padding: 48px;
+            background: var(--premium-glass-bg);
+            border: 1px solid var(--premium-glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+        }
+
+        .about-page-premium .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--premium-accent-purple), var(--premium-accent-blue), var(--premium-accent-pink));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+
+        .about-page-premium .about-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .about-page-premium .about-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--premium-glow-color) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .about-page-premium .about-card:hover::after {
+            opacity: 1;
+        }
+
+        .about-page-premium .about-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 
+                0 20px 60px rgba(99, 102, 241, 0.2),
+                0 0 100px rgba(99, 102, 241, 0.1),
+                inset 0 0 60px rgba(99, 102, 241, 0.05);
+        }
+
+        /* Card animations */
+        .about-page-premium .about-card.premium-animate-in {
+            animation: premiumCardSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .about-page-premium .about-card:nth-child(1) {
+            animation-delay: 0.6s;
+        }
+
+        .about-page-premium .about-card:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        /* Card title */
+        .about-page-premium .about-card-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--premium-text-primary);
+            position: relative;
+            padding-bottom: 16px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .about-page-premium .about-card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--premium-accent-purple), transparent);
+            border-radius: 3px;
+        }
+
+        /* Card text */
+        .about-page-premium .about-card-text {
+            font-size: 16px;
+            color: var(--premium-text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 20px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .about-page-premium .about-card-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--premium-accent-purple);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .about-page-premium .about-card-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlights */
+        .about-page-premium .about-highlight {
+            color: var(--premium-accent-purple);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-page-premium .about-highlight.strong {
+            font-size: 18px;
+            background: linear-gradient(135deg, var(--premium-accent-purple), var(--premium-accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .about-page-premium strong {
+            color: var(--premium-text-primary);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Animations */
+        @keyframes premiumFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes premiumCardSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Decorative elements */
+        .premium-deco-element {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .premium-deco-circle {
+            width: 400px;
+            height: 400px;
+            border: 2px solid var(--premium-accent-purple);
+            border-radius: 50%;
+            top: 10%;
+            right: -10%;
+            animation: premiumPulse 4s ease-in-out infinite;
+        }
+
+        .premium-deco-square {
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--premium-accent-blue);
+            bottom: 10%;
+            left: -5%;
+            transform: rotate(45deg);
+            animation: premiumRotate 20s linear infinite;
+        }
+
+        @keyframes premiumPulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+        }
+
+        @keyframes premiumRotate {
+            from { transform: rotate(45deg); }
+            to { transform: rotate(405deg); }
+        }
+
+        /* Scroll reveal */
+        .about-page-premium .premium-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .about-page-premium .premium-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom cursor effect */
+        .premium-cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .about-page-premium .about-text-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-page-premium .auto-container {
+                padding: 0 24px;
+            }
+
+            .about-page-premium .about-card {
+                padding: 32px 24px;
+            }
+
+            .about-page-premium .about-card-title {
+                font-size: 24px;
+            }
+
+            .about-page-premium .page-title {
+                font-size: 48px;
+            }
+
+            .about-page-premium .page-desc {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader"></div>
+        </div>
+
+
+        <!-- Start intellio Header Area-->
+        <div class="intellio-header-area header-pill" id="sticky-header">
+            <div class="auto-container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="header-logo">
+                            <a class="active_logo" href="index.html"><img src="images/demo-img/HRCare_logo005.png" alt="logo"></a>
+                            <a class="logo_two" href="index.html"><img src="images/demo-img/HRCare_logo005.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="header-menu">
+                           <ul class="nav_scroll">
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="about.html">О компании</a></li>
+                                <li><a href="client_cases.html">Кейсы клиентов</a></li>
+                                <li><a href="contact.html">Контакты</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="header-right-wrapper">
+                            <div class="header-sidebar">
+                                <div class="header-btn">
+                                <a href="#" class="header-demo-btn" data-open-demo>
+                                    Запросить демо
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End intellio Header Area -->
+
+        <!-- Sidebar area start here -->
+        <div class="sidebar-area offcanvas offcanvas-end" id="menubar">
+            <div class="offcanvas-header">
+                <a href="index.html" class="logo"> <img src="images/demo-img/HRCare_logo005.png" alt="logo"></a>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"><i class="fa-regular fa-xmark"></i></button>
+            </div>
+            <div class="offcanvas-body sidebar__body">
+                <div class="mobile-menu overflow-hidden"></div>
+                    <div class="d-none d-lg-block">
+                            <h5 class="text-white mb-20">О компании</h5>
+                                <p class="sidebar__text">HR Care — официальный представитель и интегратор HRM-платформы Verifix.
+                                                        Мы помогаем компаниям автоматизировать HR-процессы, учет рабочего времени,
+                                                        расчет заработной платы и управление персоналом в единой цифровой системе.</p>
+                    </div>
+                <div class="sidebar__contact-info mt-30">
+                    <h5 class="text-white mb-20">Контакты</h5>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> <a href="#0">Центральная Азия</a></li>
+                        <li class="py-2"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+998998312220">+998 99 831 22 20</a></li>
+                        <li><i class="fa-solid fa-paper-plane"></i> <a href="mailto:support@hrcare.uz">support@hrcare.uz</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar__btns my-4">
+                                <a href="#" class="header-demo-btn" data-open-demo>
+                                    Запросить демо
+                                </a>
+                                <a href="#" class="header-demo-btn" data-open-demo>
+                                    Связаться с нами
+                                </a>
+                </div>
+                <div class="sidebar__socials">
+                    <ul>
+                        <li>
+                            <a href="#0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.76562 0H8.20406C9.50719 0.0371875 10.8041 0.385625 11.9359 1.03531C13.3297 1.82094 14.4756 3.03625 15.1816 4.47188C15.6875 5.49438 15.9603 6.62656 16 7.76562V8.205C15.9647 9.38344 15.6775 10.5553 15.1419 11.6069C14.6209 12.6316 13.8803 13.5447 12.9794 14.2594C12.0306 15.0175 10.9072 15.5569 9.71937 15.8141C9.22219 15.9275 8.71313 15.9788 8.20438 16H7.795C6.40844 15.9609 5.03281 15.5628 3.84875 14.8387C2.44469 13.985 1.3125 12.6919 0.659063 11.1838C0.252187 10.255 0.0365625 9.2475 0 8.23531V7.79406C0.0359375 6.53 0.366875 5.27437 0.976875 4.16594C1.73094 2.78781 2.8975 1.64031 4.28937 0.911563C5.35844 0.34625 6.55844 0.041875 7.76562 0ZM3.40094 3.29594C4.59812 5.03813 5.79531 6.78 6.99188 8.52219C5.79563 9.91344 4.59812 11.3038 3.40219 12.6953C3.6325 12.6966 3.86313 12.695 4.09344 12.6962C4.13844 12.6884 4.20125 12.7166 4.23281 12.6722C5.27312 11.4641 6.3125 10.2553 7.35219 9.04656C8.18937 10.2625 9.02344 11.4809 9.86156 12.6962C10.7741 12.695 11.6866 12.6962 12.5988 12.6956C11.3594 10.8869 10.1119 9.08313 8.87594 7.27219C10.0203 5.94969 11.1578 4.62156 12.2987 3.29625C12.0281 3.29563 11.7578 3.29563 11.4872 3.29625C10.4987 4.44875 9.50437 5.59656 8.51844 6.75094C7.72031 5.60344 6.93437 4.44688 6.14062 3.29625C5.2275 3.29563 4.31437 3.29594 3.40094 3.29594Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                            <svg width="8" height="16" viewBox="0 0 8 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.10223 8.99555V16H1.97333V8.99555H0V6.09778H1.97333V3.89334C1.97333 1.38667 3.46666 0 5.76 0C6.85333 0 8 0.195557 8 0.195557V2.65778H6.73778C5.49334 2.65778 5.10223 3.43111 5.10223 4.22222V6.09778H7.88444L7.44 8.99555H5.10223Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+
+                        <li>
+                            <a href="#0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.58958 15.9911H0.222698V5.89045H3.58958V15.9911ZM3.92717 1.96389C3.92717 0.897859 3.08323 0.0361424 2.01719 0.000607979C0.933392 -0.0260429 0.0272588 0.826778 0.00060798 1.91058C-0.0260429 2.99438 0.826779 3.90051 1.91058 3.92716C3.01215 3.93605 3.9094 3.06546 3.92717 1.96389ZM15.9467 9.88807C15.9467 6.74327 13.9124 5.78383 12.1801 5.78383C10.963 5.7483 9.81701 6.34351 9.15074 7.35624V5.89932H5.89933V16H9.26622V10.7587C9.26622 10.7054 9.26622 10.6521 9.26622 10.5988C9.26622 10.5988 9.26622 10.5988 9.26622 10.5899C9.19515 9.51495 10.0124 8.58218 11.0874 8.51111C11.9668 8.51111 12.6331 9.07966 12.6331 10.6787V16H16L15.9556 9.89695L15.9467 9.88807Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+
+                        <li>
+                            <a href="#0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.9466 4.69593C15.8843 3.41522 15.5906 2.27682 14.6563 1.34297C13.7219 0.409114 12.5829 0.11562 11.3014 0.053363C9.97553 -0.0177877 6.01557 -0.0177877 4.69855 0.053363C3.41713 0.11562 2.28699 0.409114 1.34372 1.34297C0.400455 2.27682 0.115684 3.41522 0.0533926 4.69593C-0.0177975 6.02111 -0.0177975 9.97887 0.0533926 11.3041C0.115684 12.5848 0.409354 13.7232 1.34372 14.657C2.28699 15.5909 3.41713 15.8844 4.69855 15.9466C6.02447 16.0178 9.98443 16.0178 11.3014 15.9466C12.5829 15.8844 13.7219 15.5909 14.6563 14.657C15.5906 13.7232 15.8843 12.5848 15.9466 11.3041C16.0178 9.97887 16.0178 6.02112 15.9466 4.70483V4.69593ZM7.99111 12.2201C5.65963 12.2201 3.76419 10.3257 3.76419 7.99555C3.76419 5.66536 5.65963 3.77098 7.99111 3.77098C10.3226 3.77098 12.218 5.66536 12.218 7.99555C12.218 10.3257 10.3226 12.2201 7.99111 12.2201ZM12.9032 3.99332C12.4138 3.99332 12.0133 3.5931 12.0133 3.10394C12.0133 2.61478 12.4049 2.21456 12.9032 2.21456C13.3926 2.21456 13.7931 2.61478 13.7931 3.10394C13.7931 3.5931 13.3926 3.99332 12.9032 3.99332ZM10.8832 7.99555C10.8832 9.58754 9.58399 10.886 7.99111 10.886C6.39823 10.886 5.09901 9.58754 5.09901 7.99555C5.09901 6.40355 6.39823 5.10505 7.99111 5.10505C9.58399 5.10505 10.8832 6.40355 10.8832 7.99555Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar area end here -->
+
+        <main>
+
+    <div class="premium-animated-bg">
+        <div class="premium-particles" id="premiumParticles"></div>
+    </div>
+
+    <!-- Cursor glow effect -->
+    <div class="premium-cursor-glow" id="premiumCursorGlow"></div>
+
+    <!-- About Page Section with premium class -->
+    <section class="about-page-title about-page-premium">
+        <!-- Decorative elements -->
+        <div class="premium-deco-element premium-deco-circle"></div>
+        <div class="premium-deco-element premium-deco-square"></div>
+
+        <div class="auto-container">
+            <div class="row">
+                <div class="title-content">
+                    <h5 class="page-sub-title">HR Care</h5>
+                    <h1 class="page-title">О компании</h1>
+                    <p class="page-desc">
+                        HR Care — официальный представитель и интегратор HRM-платформы Verifix
+                        для автоматизации управления персоналом и HR-процессов.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="about-text-content">
+                    
+                    <!-- Vision & Mission Card -->
+                    <div class="about-card premium-animate-in premium-reveal">
+                        <h3 class="about-card-title">Видение и миссия</h3>
+
+                        <p class="about-card-text">
+                            Verifix — современная HRM-платформа, созданная для автоматизации
+                            управления персоналом в компаниях разного масштаба.
+                            Мы помогаем бизнесу эффективно организовать кадровый учет,
+                            контролировать рабочее время сотрудников и автоматизировать
+                            расчет заработной платы.
+                        </p>
+
+                        <p class="about-card-text">
+                            Наша миссия — сделать управление персоналом
+                            <strong>простым, точным и прозрачным</strong>,
+                            избавив HR и бизнес от рутины и ошибок.
+                        </p>
+                    </div>
+
+                    <!-- Company History Card -->
+                    <div class="about-card premium-animate-in premium-reveal">
+                        <h3 class="about-card-title">История компании</h3>
+
+                        <p class="about-card-text">
+                            Компания Verifix была создана для решения ключевых проблем
+                            HR-управления в бизнесе и производстве.
+                        </p>
+
+                        <p class="about-card-text">
+                            Сегодня платформа используется более чем в
+                            <span class="about-highlight">5 странах</span>:
+                            Узбекистане, Казахстане, Кыргызстане,
+                            Таджикистане и Монголии.
+                        </p>
+
+                        <p class="about-card-text">
+                            Нашими решениями пользуются более
+                            <span class="about-highlight strong">30 000 активных пользователей</span>,
+                            включая производственные предприятия,
+                            розничные сети и дистрибьюторов.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+        <section class="about-section-five">
+            <div class="auto-container">
+                <div class="row align-items-center">
+
+                    <!-- LEFT VISUAL (оставляем как есть) -->
+                    <div class="col-xl-5 col-lg-5">
+                        <div class="about-thumb-wrapper">
+                            <div class="about-thumb">
+                                <figure class="reveal">
+                                    <img src="images/demo-img/hrcare_logo002.png" alt="Verifix platform">
+                                </figure>
+                            </div>
+
+                            <div class="circle-text">
+                                <svg viewBox="0 0 300 300">
+                                    <defs>
+                                        <path id="circlePath"
+                                            d="M150,150 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"/>
+                                    </defs>
+
+                                    <text>
+                                        <textPath href="#circlePath" startOffset="0%">
+                                            HR AUTOMATION • VERIFIX • HR CARE • DIGITAL HR •
+                                        </textPath>
+                                    </text>
+                                </svg>
+
+                                <div class="circle-icon">
+                                    <img src="images/demo-img/circle-icon.png" alt="HR Care">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="sec-title">
+                            <div class="section-sub-title">
+                                <h5 class="sub-title split_chars">HR Care</h5>
+                            </div>
+
+                            <div class="section-title">
+                                <h1 class="title split-text">Экосистема цифрового</h1>
+                                <h1 class="title split-text">управления персоналом</h1>
+                                <h1 class="title split-text">для современного бизнеса</h1>
+                            </div>
+                        </div>
+
+                        <div class="about-wrapper-box">
+
+                            <!-- ITEM 1 -->
+                            <div class="about-icon-box">
+                                <div class="about-icon-content">
+                                    <div class="about-icon">
+                                        <img src="images/demo-img/about-icon21.png" alt="icon">
+                                    </div>
+                                    <div class="about-content">
+                                        <h4>Рост эффективности бизнеса</h4>
+                                        <p>
+                                            Снижение затрат на HR,<br>
+                                            прозрачные процессы и<br>
+                                            управляемый рост компании
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ITEM 2 -->
+                            <div class="about-icon-box">
+                                <div class="about-icon-content">
+                                    <div class="about-icon">
+                                        <img src="images/demo-img/about-icon22.png" alt="icon">
+                                    </div>
+                                    <div class="about-content">
+                                        <h4>Единая HR-платформа</h4>
+                                        <p>
+                                            Кадры, графики, зарплата<br>
+                                            аналитика и мобильное<br>
+                                            приложение в одной системе
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="about-btn">
+                            <a href="#" class="header-demo-btn" data-open-demo>
+                                Запросить демо
+                                <i class="fa-light fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-effient21 fade-in">
+                <img src="images/demo-img/about-effient21.png" alt="decor">
+            </div>
+        </section>
+
+
+
+
+            <!--brand area two-->
+            <div class="brand-area-one style-four inner">
+                <div class="auto-container brand-container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="brand-desc">
+                                <p><span>160+ </span>Trusted companies in the world</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="swiper band-active">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/ernak_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/Makro_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/samsing_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/xonsaroy_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/evos_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/oqtepa_lavash_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/safiya_band.webp" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/befit_pro_band.webp" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/inbazar_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-12">
+                                        <div class="brand-box">
+                                            <div class="brand-thumb">
+                                                <img src="images/demo-img/pepsi_band.png" alt="brand img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--brand area two -->
+
+            <!--process Section one -->
+            <section class="process-section-one inner">
+                <div class="auto-container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="sec-title text-center">
+                                <div class="section-sub-title">
+                                    <h5 class="sub-title split_chars">Процесс внедрения</h5>
+                                </div>
+                                <div class="section-title">
+                                    <h1 class="title split-text">Простой и прозрачный путь</h1>
+                                    <h1 class="title split-text">к автоматизации HR с Verifix</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- STEP 1 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-process-box">
+                                <div class="process-icon">
+                                    <img src="images/demo-img/process-icon1.png" alt="icon">
+                                </div>
+                                <div class="process-content">
+                                    <h3>Анализ и запуск</h3>
+                                    <p>
+                                        Мы изучаем структуру вашей компании,
+                                        бизнес-процессы и HR-задачи,
+                                        после чего подготавливаем оптимальную конфигурацию Verifix.
+                                    </p>
+                                </div>
+                                <div class="process-number">
+                                    <span>01</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-process-box active">
+                                <div class="process-icon">
+                                    <img src="images/demo-img/process-icon2.png" alt="icon">
+                                </div>
+                                <div class="process-content">
+                                    <h3>Внедрение и настройка</h3>
+                                    <p>
+                                        Настраиваем учет рабочего времени,
+                                        зарплаты, KPI и роли сотрудников,
+                                        а также интегрируем Verifix с вашими системами.
+                                    </p>
+                                </div>
+                                <div class="process-number">
+                                    <span>02</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-process-box">
+                                <div class="process-icon">
+                                    <img src="images/demo-img/process-icon3.png" alt="icon">
+                                </div>
+                                <div class="process-content">
+                                    <h3>Обучение и масштабирование</h3>
+                                    <p>
+                                        Обучаем HR-команду и руководителей,
+                                        сопровождаем запуск и помогаем масштабировать систему
+                                        по мере роста бизнеса.
+                                    </p>
+                                </div>
+                                <div class="process-number">
+                                    <span>03</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="process-shape1">
+                    <img src="images/inner-img/procss-shape1.png" alt="shape">
+                </div>
+                <div class="process-shape2">
+                    <img src="images/inner-img/procss-shape2.png" alt="shape">
+                </div>
+            </section>
+
+
+
+            <!--Benifits Section two -->
+            <section class="benifits-section-two inner">
+                <div class="auto-container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="sec-title text-center">
+                                <div class="section-sub-title">
+                                    <h5 class="sub-title split_chars">Преимущества</h5>
+                                </div>
+                                <div class="section-title">
+                                    <h1 class="title split-text">Почему компании выбирают Verifix</h1>
+                                    <h1 class="title split-text">для автоматизации HR</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- 1 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-binifits-box">
+                                <div class="binifits-content">
+                                    <div class="binifits-icon">
+                                        <img src="images/demo-img/binifits-icon21.png" alt="icon">
+                                    </div>
+                                    <h4>Максимальная гибкость</h4>
+                                    <p>
+                                        Модульная архитектура Verifix позволяет адаптировать
+                                        систему под бизнес любого масштаба и отрасли.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-binifits-box">
+                                <div class="binifits-content">
+                                    <div class="binifits-icon">
+                                        <img src="images/demo-img/binifits-icon22.png" alt="icon">
+                                    </div>
+                                    <h4>Отраслевая экспертиза</h4>
+                                    <p>
+                                        Мы глубоко понимаем HR-процессы в ритейле,
+                                        производстве, HoReCa и дистрибуции.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-binifits-box">
+                                <div class="binifits-content">
+                                    <div class="binifits-icon">
+                                        <img src="images/demo-img/binifits-icon23.png" alt="icon">
+                                    </div>
+                                    <h4>Опытная команда</h4>
+                                    <p>
+                                        Наши специалисты сопровождают внедрение
+                                        от анализа до запуска без лишней сложности.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-binifits-box">
+                                <div class="binifits-content">
+                                    <div class="binifits-icon">
+                                        <img src="images/demo-img/binifits-icon24.png" alt="icon">
+                                    </div>
+                                    <h4>Поддержка 24/7</h4>
+                                    <p>
+                                        Служба поддержки Verifix всегда на связи
+                                        для решения технических и бизнес-вопросов.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-binifits-box">
+                                <div class="binifits-content">
+                                    <div class="binifits-icon">
+                                        <img src="images/demo-img/binifits-icon25.png" alt="icon">
+                                    </div>
+                                    <h4>Постоянные обновления</h4>
+                                    <p>
+                                        Мы регулярно улучшаем платформу,
+                                        добавляя новые функции и повышая безопасность.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6 -->
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="single-binifits-box">
+                                <div class="binifits-content">
+                                    <div class="binifits-icon">
+                                        <img src="images/demo-img/binifits-icon25.png" alt="icon">
+                                    </div>
+                                    <h4>Гибкая система ценообразования</h4>
+                                    <p>
+                                        Выбирайте тариф, количество лицензий
+                                        и формат установки — облако или сервер.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="binifits-effient fade-in">
+                    <img src="images/demo-img/binifits-effiect21.png" alt="effient">
+                </div>
+            </section>
+            <!--Benifits Section two -->
+
+            <!--marquee inner section-->
+            <section class="marquee-inner-section">
+                <div class="inner-container">
+                    <div class="marquee">
+                        <div class="marquee-block">
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">HR-АВТОМАТИЗАЦИЯ</h3>
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">УПРАВЛЕНИЕ ПЕРСОНАЛОМ</h3>
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">УЧЕТ РАБОЧЕГО ВРЕМЕНИ</h3>
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">ЗАРПЛАТА И KPI</h3>
+                        </div>
+
+                        <div class="marquee-block">
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">HR-АВТОМАТИЗАЦИЯ</h3>
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">УПРАВЛЕНИЕ ПЕРСОНАЛОМ</h3>
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">УЧЕТ РАБОЧЕГО ВРЕМЕНИ</h3>
+                            <h3><img src="images/inner-img/marquee-icon.png" alt="icon">ЗАРПЛАТА И KPI</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- marquee inner section -->
+
+
+            <!-- accordion section one -->
+            <div class="accordion-section-one inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="accordian-wrapper">
+                                <div class="sec-title">
+                                    <div class="section-sub-title">
+                                        <h5 class="sub-title split_chars">FAQ</h5>
+                                    </div>
+                                    <div class="section-title">
+                                        <h1 class="title split-text">Часто задаваемые</h1>
+                                        <h1 class="title split-text">вопросы</h1>
+                                        <h1 class="title split-text">о платформе Verifix</h1>
+                                    </div>
+                                </div>
+
+                                <div class="accordian-thumb-wrap">
+                                    <div class="accordian-thumb">
+                                        <figure class="reveal">
+                                            <img src="images/demo-img/accordian-thumb2.png" alt="accordian-thumb">
+                                        </figure>
+                                    </div>
+                                    <div class="accordian-dot">
+                                        <img src="images/demo-img/accordian-thumb-dot.png" alt="accordian dot">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6">
+                            <!-- Start Accordion -->
+                            <div class="tab_container">
+                                <div class="tab_content">
+                                    <ul class="accordion">
+
+                                        <li>
+                                            <a><span></span>Для каких компаний подходит Verifix?</a>
+                                            <p>
+                                                Платформа подходит для среднего и крупного бизнеса:
+                                                ритейл, производство, HoReCa, логистика и дистрибуция.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <a><span></span>Можно ли адаптировать систему под наш бизнес?</a>
+                                            <p>
+                                                Да. Verifix имеет модульную архитектуру и гибкие настройки
+                                                под процессы и структуру вашей компании.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <a><span></span>Как проходит внедрение платформы?</a>
+                                            <p>
+                                                Мы сопровождаем весь процесс: анализ, настройка,
+                                                обучение сотрудников и запуск без остановки бизнеса.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <a><span></span>Есть ли мобильное приложение для сотрудников?</a>
+                                            <p>
+                                                Да. Сотрудники могут отмечать рабочее время,
+                                                просматривать графики и получать уведомления.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <a><span></span>Какая поддержка предоставляется клиентам?</a>
+                                            <p>
+                                                Клиенты Verifix получают техническую и консультационную
+                                                поддержку 24/7 на всех этапах использования.
+                                            </p>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Accordion -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-shape1 fade-in">
+                    <img src="images/demo-img/accrodion-shape1.png" alt="accordion shape">
+                </div>
+                <div class="accordion-shape2 fade-in">
+                    <img src="images/demo-img/accrodion-shape2.png" alt="accordion shape">
+                </div>
+            </div>
+            <!-- accordion section one -->
+
+        </main>
+
+
+
+<!-- CONTACT FOOTER -->
+    <footer class="footer-contact"
+        style="background-image: url(images/demo-img/footer-bg.png);">
+
+        <div class="auto-container">
+            <div class="row align-items-center">
+
+                <!-- LEFT CTA -->
+                <div class="col-xl-7 col-lg-7">
+                    <div class="footer-cta">
+                        <div class="footer-logo">
+                            <img src="images/demo-img/HRCare_logo005.png" alt="HRcare">
+                        </div>
+
+                        <h2>
+                            Свяжитесь с нами,<br>
+                            чтобы узнать больше<br>
+                            <span>о возможностях Verifix</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="col-xl-5 col-lg-5">
+                    <div class="footer-contacts">
+
+                        <h4>Выберите удобный способ связи</h4>
+
+                        <!-- CONTACT ITEMS -->
+                        <div class="contact-item">
+                            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="text">
+                                <span>Отдел продаж</span>
+                                <a href="tel:+998783330506">+998 99 831 22 20</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="text">
+                                <span>Отдел заботы о клиентах</span>
+                                <a href="tel:+998783330708">+998 90 987 04 45</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="text">
+                                <a href="mailto:support@hrcare.uz">support@hrcare.uz</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon">
+                                <img src="images/demo-img/telegram_icon.png" alt="Telegram">
+                            </div>
+                            <div class="text">
+                                <a href="https://t.me/odilakilkhanov" target="_blank" rel="noopener">
+                                    @odilakilkhanov
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon">
+                                <img src="images/demo-img/instagram_logo.png" alt="Instagram">
+                            </div>
+                            <div class="text">
+                                <a href="https://instagram.com/hr_care_group" target="_blank" rel="noopener">
+                                    @hr_care_group
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="footer-links">
+                            <a href="index.html">Главная</a>
+                            <a href="contact.html">Контакты</a>
+                            <a href="client_cases.html">Кейсы клиентов</a>
+                            <a href="about.html">О компании</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    © HR Care, 2026. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+        <!-- Scroll To Top -->
+        <div class="scroll-to-top scroll-to-target" data-target="html" style="display: block;"><span class="fa fa-angle-up"></span></div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/magnific.js"></script>
+        <script src="js/wow.js"></script>
+        <script src="js/appear.js"></script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.meanmenu.js"></script>
+        <script src="js/particles.js"></script>
+        <script src="js/nice-select.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="js/ScrollToPlugin.min.js"></script>
+        <script src="js/SplitText.js"></script>
+        <script src="js/main.js"></script>
+    </div>
+
+        <!-- DEMO MODAL -->
+        <div class="demo-modal" id="demoModal">
+            <div class="demo-overlay" data-close-demo></div>
+
+            <div class="demo-modal-content">
+                <button class="demo-close" data-close-demo>✕</button>
+
+                <h2>Форма обратной связи</h2>
+                <p class="demo-subtitle">
+                    Для удобства наших клиентов мы предлагаем несколько способов оставить заявку
+                </p>
+
+                <form class="demo-form" id="demoForm">
+
+                    <label>
+                        Как к вам обращаться?*
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                    </label>
+
+                    <label>
+                        Телефон*
+                        <div class="phone-input">
+                            <span>🇺🇿 +998</span>
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="99 123 45 67"
+                                inputmode="numeric"
+                                autocomplete="tel"
+                                maxlength="9"
+                                required
+                            >
+                        </div>
+                    </label>
+
+                    <button type="submit" class="demo-submit">
+                        Отправить
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Particle system - renamed to avoid conflicts
+            function createPremiumParticles() {
+                const particlesContainer = document.getElementById('premiumParticles');
+                if (!particlesContainer) return;
+                
+                const particleCount = 50;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('premium-particle');
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.animationDelay = `${Math.random() * 20}s`;
+                    particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // Cursor glow effect - isolated
+            const premiumCursorGlow = document.getElementById('premiumCursorGlow');
+            let premiumMouseX = 0, premiumMouseY = 0;
+            let premiumGlowX = 0, premiumGlowY = 0;
+
+            if (premiumCursorGlow) {
+                document.addEventListener('mousemove', function(e) {
+                    premiumMouseX = e.clientX;
+                    premiumMouseY = e.clientY;
+                    premiumCursorGlow.style.opacity = '1';
+                });
+
+                document.addEventListener('mouseleave', function() {
+                    premiumCursorGlow.style.opacity = '0';
+                });
+
+                function animatePremiumCursor() {
+                    premiumGlowX += (premiumMouseX - premiumGlowX) * 0.1;
+                    premiumGlowY += (premiumMouseY - premiumGlowY) * 0.1;
+                    premiumCursorGlow.style.left = `${premiumGlowX}px`;
+                    premiumCursorGlow.style.top = `${premiumGlowY}px`;
+                    requestAnimationFrame(animatePremiumCursor);
+                }
+
+                animatePremiumCursor();
+            }
+
+            // Scroll reveal - scoped to premium section only
+            function premiumRevealOnScroll() {
+                const reveals = document.querySelectorAll('.about-page-premium .premium-reveal');
+                
+                reveals.forEach(function(element) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = element.getBoundingClientRect().top;
+                    const revealPoint = 150;
+
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+
+            // Card hover effect - only for premium about cards
+            const premiumCards = document.querySelectorAll('.about-page-premium .about-card');
+            premiumCards.forEach(function(card) {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const percentX = (x - centerX) / centerX;
+                    const percentY = (y - centerY) / centerY;
+
+                    card.style.transform = `
+                        translateY(-8px)
+                        rotateY(${percentX * 5}deg)
+                        rotateX(${-percentY * 5}deg)
+                    `;
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
+                });
+            });
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    createPremiumParticles();
+                    premiumRevealOnScroll();
+                });
+            } else {
+                createPremiumParticles();
+                premiumRevealOnScroll();
+            }
+
+            // Scroll listener
+            window.addEventListener('scroll', premiumRevealOnScroll);
+
+        })();
+    </script>
+
+
+</body>
+
+</html>

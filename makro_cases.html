@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HR Care — HRM-платформа Verifix для автоматизации HR</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link href="css/case-study-premium.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader"></div>
+        </div>
+
+
+        <!-- Start intellio Header Area-->
+        <div class="intellio-header-area header-pill" id="sticky-header">
+            <div class="auto-container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="header-logo">
+                            <a class="active_logo" href="index.html"><img src="images/demo-img/HRCare_logo005.png" alt="logo"></a>
+                            <a class="logo_two" href="index.html"><img src="images/demo-img/HRCare_logo005.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="header-menu">
+                           <ul class="nav_scroll">
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="about.html">О компании</a></li>
+                                <li><a href="client_cases.html">Кейсы клиентов</a></li>
+                                <li><a href="contact.html">Контакты</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="header-right-wrapper">
+                            <div class="header-sidebar">
+                                <div class="header-btn">
+                                <a href="#" class="header-demo-btn" data-open-demo>
+                                    Запросить демо
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End intellio Header Area -->
+
+        <!-- Sidebar area start here -->
+        <div class="sidebar-area offcanvas offcanvas-end" id="menubar">
+            <div class="offcanvas-header">
+                <a href="index.html" class="logo"> <img src="images/demo-img/HRCare_logo005.png" alt="logo"></a>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"><i class="fa-regular fa-xmark"></i></button>
+            </div>
+            <div class="offcanvas-body sidebar__body">
+                <div class="mobile-menu overflow-hidden"></div>
+                    <div class="d-none d-lg-block">
+                            <h5 class="text-white mb-20">О компании</h5>
+                                <p class="sidebar__text">HR Care — официальный представитель и интегратор HRM-платформы Verifix.
+                                                        Мы помогаем компаниям автоматизировать HR-процессы, учет рабочего времени,
+                                                        расчет заработной платы и управление персоналом в единой цифровой системе.</p>
+                    </div>
+                <div class="sidebar__contact-info mt-30">
+                    <h5 class="text-white mb-20">Контакты</h5>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> <a href="#0">Центральная Азия</a></li>
+                        <li class="py-2"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+998998312220">+998 99 831 22 20</a></li>
+                        <li><i class="fa-solid fa-paper-plane"></i> <a href="mailto:support@hrcare.uz">support@hrcare.uz</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar__btns my-4">
+                                <a href="#" class="header-demo-btn" data-open-demo>
+                                    Запросить демо
+                                </a>
+                                <a href="#" class="header-demo-btn" data-open-demo>
+                                    Связаться с нами
+                                </a>
+                </div>
+                <div class="sidebar__socials">
+                    <ul>
+                        <li>
+                            <a href="#0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.76562 0H8.20406C9.50719 0.0371875 10.8041 0.385625 11.9359 1.03531C13.3297 1.82094 14.4756 3.03625 15.1816 4.47188C15.6875 5.49438 15.9603 6.62656 16 7.76562V8.205C15.9647 9.38344 15.6775 10.5553 15.1419 11.6069C14.6209 12.6316 13.8803 13.5447 12.9794 14.2594C12.0306 15.0175 10.9072 15.5569 9.71937 15.8141C9.22219 15.9275 8.71313 15.9788 8.20438 16H7.795C6.40844 15.9609 5.03281 15.5628 3.84875 14.8387C2.44469 13.985 1.3125 12.6919 0.659063 11.1838C0.252187 10.255 0.0365625 9.2475 0 8.23531V7.79406C0.0359375 6.53 0.366875 5.27437 0.976875 4.16594C1.73094 2.78781 2.8975 1.64031 4.28937 0.911563C5.35844 0.34625 6.55844 0.041875 7.76562 0ZM3.40094 3.29594C4.59812 5.03813 5.79531 6.78 6.99188 8.52219C5.79563 9.91344 4.59812 11.3038 3.40219 12.6953C3.6325 12.6966 3.86313 12.695 4.09344 12.6962C4.13844 12.6884 4.20125 12.7166 4.23281 12.6722C5.27312 11.4641 6.3125 10.2553 7.35219 9.04656C8.18937 10.2625 9.02344 11.4809 9.86156 12.6962C10.7741 12.695 11.6866 12.6962 12.5988 12.6956C11.3594 10.8869 10.1119 9.08313 8.87594 7.27219C10.0203 5.94969 11.1578 4.62156 12.2987 3.29625C12.0281 3.29563 11.7578 3.29563 11.4872 3.29625C10.4987 4.44875 9.50437 5.59656 8.51844 6.75094C7.72031 5.60344 6.93437 4.44688 6.14062 3.29625C5.2275 3.29563 4.31437 3.29594 3.40094 3.29594Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                            <svg width="8" height="16" viewBox="0 0 8 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.10223 8.99555V16H1.97333V8.99555H0V6.09778H1.97333V3.89334C1.97333 1.38667 3.46666 0 5.76 0C6.85333 0 8 0.195557 8 0.195557V2.65778H6.73778C5.49334 2.65778 5.10223 3.43111 5.10223 4.22222V6.09778H7.88444L7.44 8.99555H5.10223Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+
+                        <li>
+                            <a href="#0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.58958 15.9911H0.222698V5.89045H3.58958V15.9911ZM3.92717 1.96389C3.92717 0.897859 3.08323 0.0361424 2.01719 0.000607979C0.933392 -0.0260429 0.0272588 0.826778 0.00060798 1.91058C-0.0260429 2.99438 0.826779 3.90051 1.91058 3.92716C3.01215 3.93605 3.9094 3.06546 3.92717 1.96389ZM15.9467 9.88807C15.9467 6.74327 13.9124 5.78383 12.1801 5.78383C10.963 5.7483 9.81701 6.34351 9.15074 7.35624V5.89932H5.89933V16H9.26622V10.7587C9.26622 10.7054 9.26622 10.6521 9.26622 10.5988C9.26622 10.5988 9.26622 10.5988 9.26622 10.5899C9.19515 9.51495 10.0124 8.58218 11.0874 8.51111C11.9668 8.51111 12.6331 9.07966 12.6331 10.6787V16H16L15.9556 9.89695L15.9467 9.88807Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+
+                        <li>
+                            <a href="#0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.9466 4.69593C15.8843 3.41522 15.5906 2.27682 14.6563 1.34297C13.7219 0.409114 12.5829 0.11562 11.3014 0.053363C9.97553 -0.0177877 6.01557 -0.0177877 4.69855 0.053363C3.41713 0.11562 2.28699 0.409114 1.34372 1.34297C0.400455 2.27682 0.115684 3.41522 0.0533926 4.69593C-0.0177975 6.02111 -0.0177975 9.97887 0.0533926 11.3041C0.115684 12.5848 0.409354 13.7232 1.34372 14.657C2.28699 15.5909 3.41713 15.8844 4.69855 15.9466C6.02447 16.0178 9.98443 16.0178 11.3014 15.9466C12.5829 15.8844 13.7219 15.5909 14.6563 14.657C15.5906 13.7232 15.8843 12.5848 15.9466 11.3041C16.0178 9.97887 16.0178 6.02112 15.9466 4.70483V4.69593ZM7.99111 12.2201C5.65963 12.2201 3.76419 10.3257 3.76419 7.99555C3.76419 5.66536 5.65963 3.77098 7.99111 3.77098C10.3226 3.77098 12.218 5.66536 12.218 7.99555C12.218 10.3257 10.3226 12.2201 7.99111 12.2201ZM12.9032 3.99332C12.4138 3.99332 12.0133 3.5931 12.0133 3.10394C12.0133 2.61478 12.4049 2.21456 12.9032 2.21456C13.3926 2.21456 13.7931 2.61478 13.7931 3.10394C13.7931 3.5931 13.3926 3.99332 12.9032 3.99332ZM10.8832 7.99555C10.8832 9.58754 9.58399 10.886 7.99111 10.886C6.39823 10.886 5.09901 9.58754 5.09901 7.99555C5.09901 6.40355 6.39823 5.10505 7.99111 5.10505C9.58399 5.10505 10.8832 6.40355 10.8832 7.99555Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar area end here -->
+
+        <main>
+
+            <!-- blog details page title -->
+                <div class="blog-details-page-title" style="background-image: url(images/resource/blog-details.jpg);">
+                    <div class="hero-gradient-orbs"></div>
+                    <div class="auto-container">
+                        <div class="title-content">
+                            <span class="page-sub-title" data-scroll-reveal>КЕЙС УСПЕХА</span>
+
+                            <h1 class="page-title" data-scroll-reveal>
+                                Makro — автоматизация HR для крупной розничной сети
+                            </h1>
+
+                            <p class="page-desc" data-scroll-reveal>
+                                Внедрение HRM-платформы Verifix для учета рабочего времени,
+                                управления персоналом и повышения прозрачности HR-процессов
+                                в масштабной розничной сети
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Blog Details Area -->
+                    <div class="blog-details-area">
+                        <div class="auto-container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                <div class="row case-study-layout">
+
+                    <!-- LEFT: TEXT -->
+                    <div class="col-lg-6 col-md-12">
+                        <div class="content-section" data-scroll-reveal>
+                            <h2 class="blog-details-title">О компании</h2>
+
+                            <p class="blog-details-desc">
+                                <strong>MAKRO</strong> — одна из крупнейших розничных сетей Узбекистана,
+                                успешно работающая на рынке более 10 лет и представленная
+                                широкой сетью магазинов по всей стране.
+                            </p>
+
+                            <p class="blog-details-desc">
+                                Компания сочетает современные стандарты ритейла,
+                                широкий ассортимент товаров и конкурентные цены,
+                                создавая комфортную и доступную среду для миллионов покупателей.
+                            </p>
+
+                            <p class="blog-details-desc">
+                                Масштабная распределённая структура персонала,
+                                сменные графики работы и высокая операционная нагрузка
+                                требуют точного учета рабочего времени, контроля дисциплины
+                                и прозрачного управления HR-процессами на уровне всей сети.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- RIGHT: IMAGE -->
+                    <div class="col-lg-6 col-md-12">
+                        <div class="blog-details-thumb small-thumb" data-scroll-reveal>
+                            <figure>
+                                <img src="images/demo-img/makro.png" alt="Case Study">
+                            </figure>
+                        </div>
+                    </div>
+
+                </div>
+
+                            <!-- Challenge Section -->
+                        <div class="content-section" data-scroll-reveal>
+                            <h2 class="blog-details-title two">Вызовы компании</h2>
+
+                            <p class="blog-details-desc">
+                                В условиях масштабирования розничной сети и роста численности персонала
+                                компания MAKRO столкнулась с рядом системных вызовов в области
+                                управления персоналом и учета рабочего времени.
+                            </p>
+
+                            <div class="blog-details-list-item">
+                                <ul>
+                                    <li>
+                                        <img src="images/demo-img/check.png" alt="check">
+                                        <span>
+                                            Отсутствие прозрачного и единого учета рабочего времени
+                                            по всем торговым точкам, что приводило к ошибкам
+                                            при расчете заработной платы
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <img src="images/demo-img/check.png" alt="check">
+                                        <span>
+                                            Некорректная работа тарифной сетки и отсутствие
+                                            гибких инструментов мотивации персонала,
+                                            что негативно влияло на текучесть кадров
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <img src="images/demo-img/check.png" alt="check">
+                                        <span>
+                                            Высокая нагрузка на HR-отдел из-за ручного
+                                            табелирования, перерасчетов и согласований
+                                            по большому количеству сотрудников
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                                <!-- Solution Section -->
+                                <div class="content-section" data-scroll-reveal>
+                                    <h2 class="blog-details-title">Наше решение</h2>
+
+                                    <p class="blog-details-desc">
+                                        Команда HR Care реализовала комплексное внедрение HRM-платформы Verifix,
+                                        адаптированной под специфику розничной сети MAKRO, сменные графики
+                                        и высокую численность персонала.
+                                    </p>
+
+                                    <div class="solution-cards">
+
+                                        <!-- Card 1 -->
+                                        <div class="solution-card" data-scroll-reveal>
+                                            <div class="solution-icon">
+                                                <i class="fa-light fa-user-check"></i>
+                                            </div>
+                                            <h3>Учет рабочего времени (Face-ID)</h3>
+                                            <p>
+                                                Внедрён базовый модуль Verifix с использованием планшетов и Face-ID
+                                                для точной фиксации начала и окончания смен сотрудников
+                                                во всех торговых точках сети.
+                                            </p>
+                                        </div>
+
+                                        <!-- Card 2 -->
+                                        <div class="solution-card" data-scroll-reveal>
+                                            <div class="solution-icon">
+                                                <i class="fa-light fa-calendar-clock"></i>
+                                            </div>
+                                            <h3>Автоматизация табеля и смен</h3>
+                                            <p>
+                                                Настроен продвинутый модуль с автоматическим закрытием табеля,
+                                                корректным учетом ночных смен, переработок и гибких графиков,
+                                                без участия HR-специалистов.
+                                            </p>
+                                        </div>
+
+                                        <!-- Card 3 -->
+                                        <div class="solution-card" data-scroll-reveal>
+                                            <div class="solution-icon">
+                                                <i class="fa-light fa-graduation-cap"></i>
+                                            </div>
+                                            <h3>Развитие и аттестация персонала</h3>
+                                            <p>
+                                                Подключён модуль развития Verifix для проведения аттестаций,
+                                                фиксации пройденных обучений и автоматического повышения разрядов
+                                                сотрудников розничной сети.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Quote Section -->
+                                <div class="blog-details-author-talk" data-scroll-reveal>
+                                    <div class="blog-details-quote">
+                                        <img src="images/inner-img/blog-details-quote.png" alt="quote">
+                                    </div>
+                                    <div class="blog-details-author-title">
+                                        <p>
+                                            Внедрение Verifix позволило нам выстроить прозрачный и контролируемый
+                                            учет рабочего времени во всей сети.
+                                            Количество ошибок в расчетах заработной платы существенно сократилось,
+                                            а нагрузка на HR-отдел снизилась уже в первые месяцы работы системы.
+                                        </p>
+                                        <h5>— Руководитель отдела персонала MAKRO</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Results Section -->
+                                <div class="content-section" data-scroll-reveal>
+                                    <h2 class="blog-details-title">Результаты внедрения</h2>
+
+                                    <div class="results-grid">
+
+                                        <!-- Result 1 -->
+                                        <div class="result-card" data-scroll-reveal>
+                                            <div class="result-number" data-counter="4">0</div>
+                                            <div class="result-label">%</div>
+                                            <p>Сокращение фонда оплаты труда (ФОТ)</p>
+                                        </div>
+
+                                        <!-- Result 2 -->
+                                        <div class="result-card" data-scroll-reveal>
+                                            <div class="result-number" data-counter="100">0</div>
+                                            <div class="result-label">%</div>
+                                            <p>Автоматическое закрытие табеля без ручных корректировок</p>
+                                        </div>
+
+                                        <!-- Result 3 -->
+                                        <div class="result-card" data-scroll-reveal>
+                                            <div class="result-number" data-counter="0">0</div>
+                                            <div class="result-label">ошибок</div>
+                                            <p>Ошибки при расчёте заработной платы</p>
+                                        </div>
+
+                                        <!-- Result 4 -->
+                                        <div class="result-card" data-scroll-reveal>
+                                            <div class="result-number" data-counter="100">0</div>
+                                            <div class="result-label">%</div>
+                                            <p>Единая база сотрудников и кадровый архив</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            <!-- Contact Form -->
+                            <div class="single-comment-area">
+                                <div class="blog-details-contact" data-scroll-reveal>
+                                    <div class="blog-details-contact-title">
+                                        <h4>Хотите получить похожие результаты?</h4>
+                                        <p>Оставьте заявку и наш специалист свяжется с вами для консультации</p>
+                                    </div>
+
+                                    <form class="case-form" id="caseForm">
+                                        <input type="hidden" name="case" value="Jurabek Laboratories">
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="contact-input-box">
+                                                    <input type="text" name="name" placeholder="Ваше имя" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="contact-input-box">
+                                                    <input type="tel" name="phone" id="casePhone" placeholder="99 123 45 67" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="contact-input-box">
+                                                    <textarea name="message" placeholder="Сообщение (необязательно)" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="blog-details-submi-button">
+                                            <button type="submit">
+                                                <span>Отправить заявку</span>
+                                                <i class="fa-light fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+        </main>
+
+
+
+    <!-- CONTACT FOOTER -->
+    <footer class="footer-contact"
+        style="background-image: url(images/demo-img/footer-bg.png);">
+
+        <div class="auto-container">
+            <div class="row align-items-center">
+
+                <!-- LEFT CTA -->
+                <div class="col-xl-7 col-lg-7">
+                    <div class="footer-cta">
+                        <div class="footer-logo">
+                            <img src="images/demo-img/HRCare_logo005.png" alt="HR Care">
+                        </div>
+
+                        <h2>
+                            Свяжитесь с нами,<br>
+                            чтобы узнать больше<br>
+                            <span>о возможностях Verifix</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="col-xl-5 col-lg-5">
+                    <div class="footer-contacts">
+
+                        <h4>Выберите удобный способ связи</h4>
+
+                        <!-- CONTACT ITEMS -->
+                        <div class="contact-item">
+                            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="text">
+                                <span>Отдел продаж</span>
+                                <a href="tel:+998783330506">+998 99 831 22 20</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="text">
+                                <span>Отдел заботы о клиентах</span>
+                                <a href="tel:+998783330708">+998 90 987 04 45</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="text">
+                                <a href="mailto:support@hrcare.uz">support@hrcare.uz</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon">
+                                <img src="images/demo-img/telegram_icon.png" alt="Telegram">
+                            </div>
+                            <div class="text">
+                                <a href="https://t.me/odilakilkhanov" target="_blank" rel="noopener">
+                                    @odilakilkhanov
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon">
+                                <img src="images/demo-img/instagram_logo.png" alt="Instagram">
+                            </div>
+                            <div class="text">
+                                <a href="https://instagram.com/hr_care_group" target="_blank" rel="noopener">
+                                    @hr_care_group
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="footer-links">
+                            <a href="index.html">Главная</a>
+                            <a href="contact.html">Контакты</a>
+                            <a href="client_cases.html">Кейсы клиентов</a>
+                            <a href="about.html">О компании</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    © HR Care, 2026. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END CONTACT FOOTER -->
+
+
+
+        <!-- Scroll To Top -->
+        <div class="scroll-to-top scroll-to-target" data-target="html" style="display: block;"><span class="fa fa-angle-up"></span></div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/magnific.js"></script>
+        <script src="js/wow.js"></script>
+        <script src="js/appear.js"></script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.meanmenu.js"></script>
+        <script src="js/particles.js"></script>
+        <script src="js/nice-select.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="js/ScrollToPlugin.min.js"></script>
+        <script src="js/SplitText.js"></script>
+        <script src="js/main.js"></script>
+
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/case-study-premium.js"></script>
+
+
+    </div>
+
+        <!-- DEMO MODAL -->
+        <div class="demo-modal" id="demoModal">
+            <div class="demo-overlay" data-close-demo></div>
+
+            <div class="demo-modal-content">
+                <button class="demo-close" data-close-demo>✕</button>
+
+                <h2>Форма обратной связи</h2>
+                <p class="demo-subtitle">
+                    Для удобства наших клиентов мы предлагаем несколько способов оставить заявку
+                </p>
+
+                <form class="demo-form" id="demoForm">
+
+                    <label>
+                        Как к вам обращаться?*
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                    </label>
+
+                    <label>
+                        Телефон*
+                        <div class="phone-input">
+                            <span>🇺🇿 +998</span>
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="99 123 45 67"
+                                inputmode="numeric"
+                                autocomplete="tel"
+                                maxlength="9"
+                                required
+                            >
+                        </div>
+                    </label>
+
+                    <button type="submit" class="demo-submit">
+                        Отправить
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const caseForm = document.getElementById("caseForm");
+            if (!caseForm) return;
+
+            const phoneInput = document.getElementById("casePhone");
+
+            /* ================================
+            PHONE FORMAT (99 123 45 67)
+            ================================ */
+            phoneInput.addEventListener("input", () => {
+                let digits = phoneInput.value.replace(/\D/g, "").substring(0, 9);
+
+                let result = "";
+                if (digits.length > 0) result = digits.slice(0, 2);
+                if (digits.length > 2) result += " " + digits.slice(2, 5);
+                if (digits.length > 5) result += " " + digits.slice(5, 7);
+                if (digits.length > 7) result += " " + digits.slice(7, 9);
+
+                phoneInput.value = result;
+            });
+
+            phoneInput.addEventListener("keypress", e => {
+                if (!/[0-9]/.test(e.key)) e.preventDefault();
+            });
+
+            /* ================================
+            TELEGRAM SUBMIT
+            ================================ */
+            caseForm.addEventListener("submit", e => {
+                e.preventDefault();
+
+                const name = caseForm.name.value.trim();
+                const phone = caseForm.phone.value.trim();
+                const messageText = caseForm.message.value.trim();
+                const caseName = caseForm.querySelector('input[name="case"]').value;
+
+                if (!name || !phone) {
+                    alert("Пожалуйста, заполните имя и телефон");
+                    return;
+                }
+
+                const BOT_TOKEN = "7956339998:AAEBm1U3HikKqSg2jzqZam7kTBtknUWuAJw";
+                const CHAT_ID = "1453539792";
+
+                const message = 
+        `📌 *Заявка по кейсу Verifix*
+
+        🏢 Кейс: *${caseName}*
+        👤 Имя: ${name}
+        📞 Телефон: +998 ${phone}
+        💬 Сообщение: ${messageText || "—"}
+
+        🌐 Источник: Кейсы клиентов (HR Care)`;
+
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: "Markdown"
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("Заявка отправлена! Мы скоро свяжемся с вами.");
+                        caseForm.reset();
+                    } else {
+                        alert("Ошибка отправки заявки");
+                        console.error(data);
+                    }
+                })
+                .catch(err => {
+                    alert("Ошибка соединения с Telegram");
+                    console.error(err);
+                });
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>
