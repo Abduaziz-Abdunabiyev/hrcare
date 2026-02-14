@@ -3112,11 +3112,19 @@ Section Title
 
 .binifits-marquee-area-one .single-binifits-box {
     position: relative;
-    padding: 24px 30px 24px;
-    height: 110px;
+    padding: 24px 30px;
+    min-height: 110px;
+    height: auto;
     width: 320px;
     margin-left: 75px;
     margin-bottom: 90px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1199.98px) {
+    .binifits-marquee-area-one .single-binifits-box {
+        margin-left: 0;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
@@ -3147,18 +3155,22 @@ Section Title
 .binifits-marquee-area-one .single-binifits-box::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border-radius: 20px;
     border: 1.5px solid transparent;
-    background: linear-gradient(91.06deg, #6766FF 6.82%, rgba(103, 102, 255, 0.2) 37.09%, rgba(103, 102, 255, 0.2) 67.36%, #6766FF 96.43%) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    background: linear-gradient(
+        91.06deg,
+        #6766FF 6.82%,
+        rgba(103, 102, 255, 0.2) 37.09%,
+        rgba(103, 102, 255, 0.2) 67.36%,
+        #6766FF 96.43%
+    ) border-box;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    height: 110px;
-    width: 320px;
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
