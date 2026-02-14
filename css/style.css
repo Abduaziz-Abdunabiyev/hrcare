@@ -3110,14 +3110,22 @@ Section Title
     }
 }
 
+.binifits-marquee-area-one {
+    position: relative;
+    overflow: hidden; /* чтобы линии не вылезали */
+}
+
+
 .binifits-marquee-area-one .single-binifits-box {
     position: relative;
     padding: 24px 30px;
     min-height: 110px;
     height: auto;
-    width: 320px;
-    margin-left: 75px;
-    margin-bottom: 90px;
+
+    max-width: 320px;
+    width: 100%;
+
+    margin: 0 0 90px 0;
     box-sizing: border-box;
 }
 
